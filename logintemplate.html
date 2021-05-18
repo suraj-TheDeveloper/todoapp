@@ -1,0 +1,23 @@
+<div class="content-box">
+    <div ng-controller="loginController">
+        <form style="text-align: center;" name="register" novalidate>
+            <h1>Login</h1>
+            <div class="form-field-group">
+                <label for="Name">Name:</label><br>
+                <input type="text" name="Name" ng-model="Name" class="form-field" placeholder="Enter Name..." required><br>
+                <span ng-show="register.Name.$touched && register.Name.$invalid">Please Enter Name</span>
+            </div>
+            <div class="form-field-group">
+                <label for="Email">Email:</label><br>
+                <input type="text" name="Email" ng-model="Email" class="form-field" placeholder="Enter Email..." required><br>
+                <span ng-show="register.Email.$touched && register.Email.$invalid ">Please Enter Email</span>
+            </div>
+            <div class="form-field-group">
+                <label for="Password">Password:</label><br>
+                <input type="password" name="Password" ng-model="Password" class="form-field" placeholder="Enter Password..." required><br>
+                <span ng-show="register.Password.$touched && register.Password.$invalid ">Please Enter Password</span>
+            </div>
+            <input type="submit" name="Register" value="Register" class="darkblue-button" ng-click="register()">
+        </form>
+    </div>
+</div>
