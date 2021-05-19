@@ -1,9 +1,8 @@
 <?php
     header("Access-Control-Allow-Origin: *");
-    header("Content-Type: application/x-www-form-urlencoded; charset=UTF-8.");
-    $link = mysqli_connect("localhost", "root", "", "todoapp");
+    header("Content-Type: application/x-www-form-urlencoded; charset=UTF-8");
     $data = json_decode(file_get_contents("php://input"), true);
-    print_r(json_decode(file_get_contents("php://input"), true));
+    $link = mysqli_connect("localhost", "root", "", "todoapp");
     $Name = $data['Name'];
     $Email = $data['Email'];
     $Phone = $data['Phone'];
