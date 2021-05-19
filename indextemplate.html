@@ -1,33 +1,33 @@
 <div class="content-box">
     <div ng-controller="indexController">
-        <form style="text-align: center;" name="register" novalidate ng-submit="register()">
+        <form style="text-align: center;" name="Register" novalidate ng-submit="register()">
             <h1>Register</h1>
             <div class="form-field-group">
                 <label for="Name">Name:</label><br>
                 <input type="text" name="Name" ng-model="Name" class="form-field" placeholder="Enter Name..." required><br>
-                <span ng-show="register.Name.$touched && register.Name.$invalid">Please Enter Name</span>
+                <span ng-show="Register.Name.$touched && Register.Name.$invalid">Please Enter Name</span>
             </div>
             <div class="form-field-group">
                 <label for="Email">Email:</label><br>
                 <input type="text" name="Email" ng-model="Email" class="form-field" placeholder="Enter Email..." required><br>
-                <span ng-show="register.Email.$touched && register.Email.$invalid ">Please Enter Email</span>
+                <span ng-show="Register.Email.$touched && Register.Email.$invalid ">Please Enter Email</span>
             </div>
              <div class="form-field-group">
                 <label for="Phone">Phone:</label><br>
                 <input type="tel" name="Phone" ng-model="Phone" class="form-field" placeholder="Enter Phone..." required><br>
-                <span ng-show="register.Phone.$touched && register.Phone.$invalid ">Please Enter Phone</span>
+                <span ng-show="Register.Phone.$touched && Register.Phone.$invalid ">Please Enter Phone</span>
             </div>
             <div class="form-field-group">
                 <label for="Password">Password:</label><br>
                 <input type="password" name="Password" ng-model="Password" class="form-field" placeholder="Enter Password..." required><br>
-                <span ng-show="register.Password.$touched && register.Password.$invalid ">Please Enter Password</span>
+                <span ng-show="Register.Password.$touched && Register.Password.$invalid ">Please Enter Password</span>
             </div>
             <div class="form-field-group">
                 <label for="ConfirmPassword">ConfirmPassword:</label><br>
                 <input type="password" name="ConfirmPassword" ng-model="ConfirmPassword" class="form-field" placeholder="Re - Enter Password..." required><br>
-                <span ng-show="register.ConfirmPassword.$touched && register.ConfirmPassword.$invalid ">Please Re - Enter Password</span>
+                <span ng-show="Register.ConfirmPassword.$touched && Register.ConfirmPassword.$invalid ">Please Re - Enter Password</span>
             </div>
-            <input type="submit" name="Register" value="Register" class="darkblue-button">
+            <input type="submit" name="Register" ng-model="Register" value="Register" class="darkblue-button">
         </form>
     </div>
 </div>
