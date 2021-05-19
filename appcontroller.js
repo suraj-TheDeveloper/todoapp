@@ -5,16 +5,23 @@ var app = angular.module("todoapp", ["ngRoute"]);
 app.config(function($routeProvider){
     $routeProvider
     .when('/', {
-        templateUrl: 'indextemplate.html'
+        templateUrl: 'indextemplate.html',
+        controller: 'indexController'
     })
     .when('/login', {
-        templateUrl: 'logintemplate.html'
+        templateUrl: 'logintemplate.html',
+        controller: 'loginController'
+    })
+    .when('/welcome', {
+        templateUrl: 'welcometemplate.html', 
+        controller: 'welcomeController'
     })
     .otherwise({
         redirectTo: '/'
     })
 });
-//controller area inserting into database
+//controller area 
+//inserting into database
 app.controller("indexController", function($scope, $http, $location){
     $scope.register = function(){
         $http.post("insert.php", {
@@ -26,6 +33,19 @@ app.controller("indexController", function($scope, $http, $location){
         }).then(function(data){
             alert("Data inserted Successfully");
             $location.url("/login");
+        });
+    }
+});
+//verifying the user
+app.controller("loginController", function($scope, $http, $location){
+    $scope.Login = function(){
+        $http.post("login.php", {
+            'Name': $scope.Name,
+            'Email': $scope.Email,
+            'Password': $scope.Password
+        }).then(function(data){
+            alert("login successfull");
+            $location.url("/welcome");
         });
     }
 });
