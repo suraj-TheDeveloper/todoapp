@@ -14,6 +14,7 @@
         $Emails = $row['Email'];
         $Passwords = $row['Passwords'];
         if($Names == $Name && $Emails == $Email && $Password == $Passwords){
+            $_SESSION['Name'] = $Name;
             echo "inserted successfully";
         } else {
             echo "not inserted";
