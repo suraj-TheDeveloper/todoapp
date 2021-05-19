@@ -1,0 +1,23 @@
+<div class="content-box">
+    <div ng-controller="adminController">
+        <form style="text-align: center;" name="admin" novalidate ng-submit="adminLogin()">
+            <h1>Login</h1>
+            <div class="form-field-group">
+                <label for="Name">Name:</label><br>
+                <input type="text" name="Name" ng-model="Name" class="form-field" placeholder="Enter Name..." required><br>
+                <span ng-show="admin.Name.$touched && admin.Name.$invalid">Please Enter Name</span>
+            </div>
+            <div class="form-field-group">
+                <label for="Email">Email:</label><br>
+                <input type="text" name="Email" ng-model="Email" class="form-field" placeholder="Enter Email..." required><br>
+                <span ng-show="admin.Email.$touched && admin.Email.$invalid ">Please Enter Email</span>
+            </div>
+            <div class="form-field-group">
+                <label for="Password">Password:</label><br>
+                <input type="password" name="Password" ng-model="Password" class="form-field" placeholder="Enter Password..." required><br>
+                <span ng-show="admin.Password.$touched && admin.Password.$invalid ">Please Enter Password</span>
+            </div>
+            <input type="submit" name="Login" value="Login" class="darkblue-button">
+        </form>
+    </div>
+</div>
