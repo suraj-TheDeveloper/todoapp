@@ -16,6 +16,14 @@ app.config(function($routeProvider){
         templateUrl: 'welcometemplate.html', 
         controller: 'welcomeController'
     })
+    .when('/admin', {
+        templateUrl: 'admintemplate.html',
+        controller: 'adminController'
+    })
+    .when('/dashboard', {
+        templateUrl: 'dashboardtemplate.html',
+        controller: 'dashboardController'
+    })
     .otherwise({
         redirectTo: '/'
     })
@@ -34,9 +42,12 @@ app.controller("indexController", function($scope, $http, $location){
             alert("Data inserted Successfully");
             $location.url("/login");
         });
+        $scope.loginpage = function(){
+            $location.url("/login");
+        }
     }
 });
-//verifying the user
+//verifying the user 
 app.controller("loginController", function($scope, $http, $location){
     $scope.Login = function(){
         $http.post("login.php", {
@@ -46,6 +57,23 @@ app.controller("loginController", function($scope, $http, $location){
         }).then(function(data){
             alert("login successfull");
             $location.url("/welcome");
+        });
+    }
+});
+//welcome page controller
+app.controller("welcomeController", function($scope, $location){
+    $scope.heading = "Welcome Home"
+});
+//verifying the admin
+app.controller("adminController", function($scope, $http, $location){
+    $scope.adminLogin = function(){
+        $http.post("admin.php", {
+            'Name': $scope.Name,
+            'Email': $scope.Email,
+            'Password': $scope.Password
+        }).then(function(data){
+            alert("login successfull");
+            $location.url("/dashboard");
         });
     }
 });
