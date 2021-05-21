@@ -1,0 +1,15 @@
+<div class="content-box" ng-controller="tableController">
+    <center><table border="1">
+        <thead>
+            <th>Description</th>
+            <th>Start Date/Time</th>
+            <th>End Date/Time</th>
+        </thead>
+        <tbody ng-repeat="result in names">
+            <td>{{ result.Description }}</td>
+            <td>{{ result.Stime }}</td>
+            <td>{{ result.Etime }}</td>
+        </tbody>
+    </table></center>
+    <center><p>Click here to <a href="#!welcome">Create Task </a></p></center>
+</div>
