@@ -1,4 +1,23 @@
 <div class="content-box" ng-controller="welcomeController">
-    <h1 class="center-heading">{{ heading }}</h1>
     <a class="center-heading" href="logout.php">Logout</a>
+    <form style="text-align: center;" name="task" novalidate ng-submit="Task()">
+        <h1>{{ heading }}</h1>
+        <div class="form-field-group">
+            <label for="Name">Task Description:</label><br>
+            <textarea name="Description" style="padding: 10px;" rows="10" cols="23" ng-model="Description" placeholder="Enter Description...."></textarea><br>
+            <span ng-show="task.Description.$touched && task.Description.$invalid">Please Enter Description</span>
+        </div>
+        <div class="form-field-group">
+            <label for="Email">Start Time:</label><br>
+            <input type="datetime-local" name="Stime" ng-model="Stime" class="form-field" required><br>
+            <span ng-show="task.Stime.$touched && task.Stime.$invalid">Please Enter Start Time</span>
+        </div>
+        <div class="form-field-group">
+            <label for="Password">End Time:</label><br>
+            <input type="datetime-local" name="Etime" ng-model="Etime" class="form-field" required><br>
+            <span ng-show="task.Etime.$touched && task.Etime.$invalid">Please Enter End Time</span>
+        </div>
+        <input type="submit" name="task" value="Create Task" class="darkblue-button">
+        <center><p>Click here to see <a href="#!tasktable">Created Task</a></p></center>
+    </form>
 </div>
