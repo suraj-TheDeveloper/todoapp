@@ -16,13 +16,13 @@ app.config(function($routeProvider){
         templateUrl: 'welcometemplate.html', 
         controller: 'welcomeController'
     })
-    .when('/admin', {
-        templateUrl: 'admintemplate.html',
-        controller: 'adminController'
+    .when('/task', {
+        templateUrl: 'tasktemplate.html', 
+        controller: 'taskController'
     })
-    .when('/dashboard', {
-        templateUrl: 'dashboardtemplate.html',
-        controller: 'dashboardController'
+    .when('/tasktable', {
+        templateUrl: 'tabletemplate.html',
+        controller: 'tableController'
     })
     .otherwise({
         redirectTo: '/'
@@ -61,19 +61,22 @@ app.controller("loginController", function($scope, $http, $location){
     }
 });
 //welcome page controller
-app.controller("welcomeController", function($scope, $location){
-    $scope.heading = "Welcome Home"
-});
-//verifying the admin
-app.controller("adminController", function($scope, $http, $location){
-    $scope.adminLogin = function(){
-        $http.post("admin.php", {
-            'Name': $scope.Name,
-            'Email': $scope.Email,
-            'Password': $scope.Password
+app.controller("welcomeController", function($scope, $http){
+    $scope.heading = "Add a Task";
+    $scope.Task = function(){
+        $http.post("taskinsert.php", {
+            'Description': $scope.Description,
+            'Stime': $scope.Stime,
+            'Etime': $scope.Etime
         }).then(function(data){
-            alert("login successfull");
-            $location.url("/dashboard");
+            alert("task Created Successfully");
         });
     }
+});
+//table page controller
+app.controller("tableController", function($scope, $http){
+        $http.get("displaytable.php")
+        .then(function(response){
+            $scope.names = response.data;
+        });
 });
